@@ -4,7 +4,7 @@ import { ExtensionProps } from "../types.ts";
 
 function ExtensionList() {
     const getFilteredExtensions = useExtensionStore((state) => state.getFilteredExtensions);
-    const filteredExtensions = getFilteredExtensions(); // safe call outside selector
+    const filteredExtensions = getFilteredExtensions();
     return (
         <>
             {filteredExtensions.length === 0 && <p className="text-center text-3xl text-white">No extensions found...</p>}
