@@ -1,0 +1,146 @@
+@import "tailwindcss";
+
+/* =================== */
+/*     Custom Theme    */
+/* =================== */
+:root {
+    --Neutral_900: #09153e;
+    --Neutral_800: #212636;
+    --Neutral_700: #2f364b;
+    --Neutral_600: #545969;
+    --Neutral_300: #c7c7c7;
+    --Neutral: #d6e2f5;
+    --Neutral_100: #ededed;
+    --Neutral_0: #fbfdfe;
+
+    --Red-400: #f25c54;
+    --Red-500: #de473f;
+    --Red-700: #c7221a;
+
+    --light-gradient: linear-gradient(180deg, #EBF2FC 0%, #EEF8F9 100%);
+    --dark-gradient: linear-gradient(180deg, #040918 0%, #091540 100%);
+    --font-family: 'Noto Sans', sans-serif;
+    --font-size-body: 16px;
+}
+
+/* =================== */
+/*     Theme Modes     */
+/* =================== */
+.light {
+    --body-background: var(--light-gradient);
+    --navbar-bg: var(--Neutral_0);
+    --navbar-text: var(--Neutral_800);
+    --navbar-button-bg: var(--Neutral_100);
+    --navbar-button-hover-bg: var(--Neutral_300);
+    --navbar-button-focus-border: var(--Red-400);
+    --heading-color: var(--Neutral_900);
+    --card-heading:var(--Neutral_800);
+    --card-para: var(--Neutral_600);
+    --toggle-btn-bg: var(--Neutral_300);
+}
+
+.dark {
+    --body-background: var(--dark-gradient);
+    --navbar-bg: var(--Neutral_800);
+    --navbar-text: var(--Neutral_100);
+    --navbar-button-bg: var(--Neutral_700);
+    --navbar-button-hover-bg: var(--Neutral_600);
+    --navbar-button-focus-border: var(--Red-400);
+    --heading-color: var(--Neutral_100);
+    --toggle-btn-bg: var(--Neutral_600);
+    --toggle-active-bg: var(--Red-400);
+    --card-heading: var(--Neutral_0);
+ --card-para: var(--Neutral_300);
+}
+
+/* =================== */
+/*  Components Layer   */
+/* =================== */
+@layer components {
+    .btn {
+        @apply py-2 px-4 rounded-3xl border text-base font-medium cursor-pointer shadow transition-all duration-300 ease-in-out   focus:outline-none focus:border focus:border-[#c7221a]
+        active:bg-[#de473f]
+
+
+    }
+    .btn-light {
+        @apply border border-[#c7c7c7] bg-[#fbfdfe] text-[#212636]
+        hover:bg-[#f25c54] hover:text-[#212636]
+        focus:bg-[#c7221a] focus:text-[#212636]
+        active:text-[#c7c7c7]
+    }
+
+    .btn-dark {
+        @apply bg-[var(--Neutral_600)] text-[#c7c7c7]
+        hover:bg-[#f25c54] hover:text-[#2f364b]
+        active:text-[#212636]
+        focus:bg-[#545969] focus:text-[#c7c7c7];
+    }
+}
+
+/* =================== */
+/*   Utilities Layer   */
+/* =================== */
+@layer utilities {
+    .bg-body {
+        background: var(--body-background);
+    }
+
+    .navbar-bg {
+        background: var(--navbar-bg);
+    }
+
+    .navbar-text {
+        color: var(--navbar-text);
+    }
+
+    .navbar-button-bg {
+        background: var(--navbar-button-bg);
+        border: 1px solid transparent;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .navbar-button-bg:hover {
+        background: var(--navbar-button-hover-bg);
+    }
+
+    .navbar-button-bg:focus {
+        border-color: var(--Red-400);
+        outline: none;
+    }
+
+    .heading-color {
+        color: var(--heading-color);
+    }
+    .card-heading{
+        color: var(--card-heading)
+    }
+    .card-para{
+        color: var(--card-para);
+    }
+    .toggle-btn-bg {
+        background: var(--toggle-btn-bg);
+    }
+}
+
+/* =================== */
+/*      Base Reset     */
+/* =================== */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 100%;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family);
+    font-size: var(--font-size-body);
+    line-height: 1.5;
+}
+
+.hidden {
+    display: none;
+}
